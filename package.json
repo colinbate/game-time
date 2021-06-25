@@ -1,10 +1,10 @@
 {
-  "name": "svelte-ts-tailwind-app",
+  "name": "game-time",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "dev": "TAILWIND_MODE=watch rollup -c -w",
+    "dev": "rollup -c -w",
     "start": "sirv public",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
