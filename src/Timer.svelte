@@ -2,8 +2,12 @@
   import { onDestroy } from 'svelte';
   export let endDate: number = 0;
   let current = Date.now();
+  let frame;
   function formatDuration(ms: number) {
     if (ms <= 0) {
+      if (frame) {
+        cancelAnimationFrame(frame);
+      }
       return '0d 00:00:00';
     }
     const secs = Math.floor(ms / 1000);
@@ -16,7 +20,6 @@
     return `${days}d ${hrem < 10 ? '0' : ''}${hrem}:${mrem < 10 ? '0' : ''}${mrem}:${srem < 10 ? '0' : ''}${srem}`;
   }
   $: timeStr = formatDuration(endDate - current);
-  let frame;
   function countdown() {
     frame = requestAnimationFrame(countdown);
     current = Date.now();
@@ -24,6 +27,6 @@
   onDestroy(() => cancelAnimationFrame(frame));
   countdown();
 </script>
-<div>
+<div class="font-mono">
 {timeStr}
 </div>

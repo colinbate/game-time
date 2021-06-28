@@ -11,7 +11,7 @@
 <ModeSwitcher />
 <main class="p-4 mx-auto text-center max-w-xl">
 	<h1 class="uppercase text-6xl leading-normal font-thin text-svelte">{title}</h1>
-	<div class="text-2xl mt-12 font-bold">
+	<div class="text-3xl mt-12 font-bold">
 		<Timer endDate={ts}/>
 	</div>
 </main>
